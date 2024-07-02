@@ -18,6 +18,19 @@ To avoid share the credentials and upload the larges files in the repository, I 
 - `*.csv`: Dataset files.
 - `*.json`: Dataset files.
 
+## Dependencies added
+
+For the challenge:
+
+- google-cloud-bigquery: To interact with BigQuery.
+- google-cloud-storage: To interact with Google Cloud Storage.
+- pandas: To work with dataframes.
+- memory-profiler: To profile memory usage.
+- py-spy: To profile time usage.
+
+For clean the environment:
+- ruff: To sort the imports, format the code and check for errors.
+- isort: To sort the imports.
 
 1. **Set Up the Environment**: 
     - Create a new project in the Google Cloud Platform (GCP) console.
