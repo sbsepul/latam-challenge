@@ -4,8 +4,6 @@ from datetime import datetime
 from google.cloud import storage, bigquery
 import pandas as pd
 import time
-from typing import List, Tuple
-from datetime import datetime
 
 
 def q1_time(file_path: str) -> List[Tuple[datetime.date, str]]:

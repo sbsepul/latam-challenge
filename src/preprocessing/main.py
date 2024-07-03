@@ -1,6 +1,5 @@
 from google.cloud import storage
 import pandas as pd
-import json
 import emoji
 import logging
 import traceback
@@ -14,9 +13,9 @@ def try_catch_log(wrapped_func):
       # would trigger several errors.
       error_message = traceback.format_exc().replace('\n', '  ')
       logging.error(error_message)
-      return 'Error';
-    return response;
-  return wrapper;
+      return 'Error'
+    return response
+  return wrapper
 
 @try_catch_log
 def preprocess_twitter_data(event, context):
