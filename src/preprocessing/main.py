@@ -52,6 +52,10 @@ def preprocess_twitter_data(event, context):
     filtered_data["mentions"] = filtered_data["mentionedUsers"].apply(extract_mentions)
     filtered_data.drop(columns=["user", "mentionedUsers"], inplace=True)
     filtered_data.rename(columns={"id": "tweet_id", "date": "tweet_date"}, inplace=True)
+    filtered_data["tweet_date"] = pd.to_datetime(filtered_data["tweet_date"]).dt.date
+    filtered_data["tweet_date"] = filtered_data["tweet_date"].apply(
+        lambda x: x.strftime("%Y-%m-%d")
+    )
 
     basename = os.path.basename(file_name)
     basename = basename.split(".")[0]
