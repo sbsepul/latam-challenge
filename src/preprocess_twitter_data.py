@@ -1,6 +1,7 @@
 import pandas as pd
 import emoji
 import memory_profiler
+import os
 
 
 def extract_emojis(text):
@@ -25,11 +26,17 @@ def preprocess_twitter_data(file_path):
     filtered_data["mentions"] = filtered_data["mentionedUsers"].apply(extract_mentions)
     filtered_data.drop(columns=["user", "mentionedUsers"], inplace=True)
     filtered_data.rename(columns={"id": "tweet_id", "date": "tweet_date"}, inplace=True)
+    filtered_data["tweet_date"] = pd.to_datetime(filtered_data["tweet_date"]).dt.date
+    filtered_data["tweet_date"] = filtered_data["tweet_date"].apply(
+        lambda x: x.strftime("%Y-%m-%d")
+    )
 
-    # Guardar el DataFrame filtrado en un nuevo archivo CSV
-    filtered_data.to_csv("filtered_data.csv", index=False)
+    basename = os.path.basename(file_path)
+    basename = basename.split(".")[0]
+    filtered_name = f"{basename}_filtered.json"
 
-    print("Preprocessing completed and data saved to filtered_data.csv successfully.")
+    filtered_data.to_json(filtered_name, orient="records", lines=True)
 
 
-preprocess_twitter_data("farmers-protest-tweets-2021-2-4.json")
+if __name__ == "__main__":
+    preprocess_twitter_data("farmers-protest-tweets-2021-2-4.json")

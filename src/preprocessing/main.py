@@ -55,9 +55,9 @@ def preprocess_twitter_data(event, context):
 
     basename = os.path.basename(file_name)
     basename = basename.split(".")[0]
-    filtered_name = f"{basename}_filtered.csv"
-    # Guardar el DataFrame filtrado en un nuevo archivo CSV
-    filtered_data.to_csv(f"/tmp/{filtered_name}", index=False)
+    filtered_name = f"{basename}_filtered.json"
+    # Guardar el DataFrame filtrado en un nuevo archivo JSON
+    filtered_data.to_json(f"/tmp/{filtered_name}", orient="records", lines=True)
 
     # Subir el archivo CSV filtrado de vuelta a Cloud Storage
     output_blob = bucket.blob(f"filtered/{filtered_name}")
