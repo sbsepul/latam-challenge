@@ -1,7 +1,8 @@
-import pandas as pd
+import os
+
 import emoji
 import memory_profiler
-import os
+import pandas as pd
 
 
 def extract_emojis(text):

@@ -1,7 +1,8 @@
-from typing import List, Tuple
-from datetime import datetime
 import json
 import time
+from datetime import datetime
+from typing import List, Tuple
+
 import memory_profiler
 
 
@@ -15,8 +16,8 @@ def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
     with open(file_path, "r") as file:
         for line in file:
             tweet = json.loads(line)
-            date = datetime.fromisoformat(tweet["date"]).date()
-            user = tweet["user"]["username"]
+            date = datetime.strptime(tweet["tweet_date"], "%Y-%m-%d").date()
+            user = tweet["username"]
 
             if date not in tweet_counts:
                 tweet_counts[date] = 0
@@ -29,10 +30,15 @@ def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
 
     top_dates = sorted(tweet_counts, key=tweet_counts.get, reverse=True)[:10]
     result = [
-        (date, max(user_counts[date], key=user_counts[date].get)) for date in top_dates
+        (date, max(user_counts[date], key=user_counts[date].get), tweet_counts[date])
+        for date in top_dates
     ]
 
     end_time = time.time()
     print(f"Execution time: {end_time - start_time} seconds")
 
     return result
+
+
+if __name__ == "__main__":
+    q1_memory("farmers-protest-tweets-2021-2-4_filtered.json")
