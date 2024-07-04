@@ -1,4 +1,6 @@
 env/
+*.env
+*.dat
 *.zip
 *.json
 *.csv
