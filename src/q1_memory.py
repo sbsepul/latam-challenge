@@ -37,9 +37,3 @@ def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
     print(f"Execution time: {end_time - start_time} seconds")
 
     return result
-
-
-if __name__ == "__main__":
-    result = q1_memory("farmers-protest-tweets-2021-2-4_filtered.json")
-    for date, user, count in result:
-        print(f"{date}: {user} ({count})")

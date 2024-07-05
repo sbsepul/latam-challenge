@@ -7,24 +7,21 @@ import memory_profiler
 
 
 @memory_profiler.profile
-def q2_memory(file_path: str) -> List[Tuple[str, int]]:
+def q3_memory(file_path: str) -> List[Tuple[str, int]]:
     start_time = time.time()
 
-    emoji_counts = Counter()
+    mention_counter = Counter()
 
     with open(file_path, "r") as file:
         for line in file:
             tweet = json.loads(line)
-            emojis = tweet.get("emojis")
-            if emojis:
-                emoji_list = emojis.split(",")
-                emoji_counts.update(emoji_list)
+            if tweet["mentionedUsers"]:
+                mentions = [user["username"] for user in tweet["mentionedUsers"]]
+                mention_counter.update(mentions)
 
-    top_10_emojis = emoji_counts.most_common(10)
-    result = [(emoji, count) for emoji, count in top_10_emojis]
+    result = mention_counter.most_common(10)
 
     end_time = time.time()
-
     print(f"Execution time: {end_time - start_time} seconds")
 
     return result
