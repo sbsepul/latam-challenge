@@ -30,8 +30,7 @@ def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
 
     top_dates = sorted(tweet_counts, key=tweet_counts.get, reverse=True)[:10]
     result = [
-        (date, max(user_counts[date], key=user_counts[date].get), tweet_counts[date])
-        for date in top_dates
+        (date, max(user_counts[date], key=user_counts[date].get)) for date in top_dates
     ]
 
     end_time = time.time()
@@ -41,4 +40,6 @@ def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
 
 
 if __name__ == "__main__":
-    q1_memory("farmers-protest-tweets-2021-2-4_filtered.json")
+    result = q1_memory("farmers-protest-tweets-2021-2-4_filtered.json")
+    for date, user, count in result:
+        print(f"{date}: {user} ({count})")
