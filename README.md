@@ -14,7 +14,9 @@ For the challenge, I have implemented two approaches for each problem: one optim
 
 To avoid share the credentials and upload the larges files in the repository, I have created a .gitignore file to exclude the files from the repository. The files are:
 
-- `env/`: Folder with credentials.
+- `*.env`: File with credentials.
+- `*.dat`: Large data files.
+- `*.zip`: Large data files.
 - `*.csv`: Dataset files.
 - `*.json`: Dataset files.
 
