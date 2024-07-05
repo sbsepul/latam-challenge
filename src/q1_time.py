@@ -1,7 +1,8 @@
-from typing import List, Tuple
-from datetime import datetime
-import pandas as pd
 import time
+from datetime import datetime
+from typing import List, Tuple
+
+import pandas as pd
 
 
 def q1_time(file_path: str) -> List[Tuple[datetime.date, str]]:
@@ -21,3 +22,9 @@ def q1_time(file_path: str) -> List[Tuple[datetime.date, str]]:
     print(f"Execution time: {end_time - start_time} seconds")
 
     return result
+
+
+if __name__ == "__main__":
+    result = q1_time("farmers-protest-tweets-2021-2-4_filtered.json")
+    for date, user in result:
+        print(f"{date}: {user}")
