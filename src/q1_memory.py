@@ -1,5 +1,7 @@
 from typing import List, Tuple
 from datetime import datetime
+import json
+import time
 
 def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
     start_time = time.time()
