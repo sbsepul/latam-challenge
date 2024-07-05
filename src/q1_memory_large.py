@@ -16,8 +16,8 @@ def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
     with open(file_path, "r") as file:
         for line in file:
             tweet = json.loads(line)
-            date = datetime.strptime(tweet["tweet_date"], "%Y-%m-%d").date()
-            user = tweet["username"]
+            date = datetime.fromisoformat(tweet["date"]).date()
+            user = tweet["user"]["username"]
 
             if date not in tweet_counts:
                 tweet_counts[date] = 0

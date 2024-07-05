@@ -19,9 +19,3 @@ def q2_time(file_path: str) -> List[Tuple[str, int]]:
     end_time = time.time()
     print(f"Execution time: {end_time - start_time} seconds")
     return result
-
-
-if __name__ == "__main__":
-    result = q2_time("farmers-protest-tweets-2021-2-4_filtered.json")
-    for emoji, count in result:
-        print(f"{emoji}: {count}")

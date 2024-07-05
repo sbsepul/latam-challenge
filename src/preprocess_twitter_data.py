@@ -37,7 +37,3 @@ def preprocess_twitter_data(file_path):
     filtered_name = f"{basename}_filtered.json"
 
     filtered_data.to_json(filtered_name, orient="records", lines=True)
-
-
-if __name__ == "__main__":
-    preprocess_twitter_data("farmers-protest-tweets-2021-2-4.json")
