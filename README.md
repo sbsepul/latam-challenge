@@ -24,6 +24,10 @@ The credentials file is a .env file with the structure of `.env.example` file.
 
 In the `env/` folder is recommended to save the credentials file.
 
+## Requirements
+
+The requirements are saved in the `requirements.txt` file. The file is created using the `pip-chill` package.
+
 ## Dependencies added
 
 For the challenge:
