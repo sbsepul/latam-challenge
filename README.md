@@ -18,37 +18,47 @@ To avoid share the credentials and upload the larges files in the repository, I 
 - `*.csv`: Dataset files.
 - `*.json`: Dataset files.
 
+## Dependencies added
 
-1. **Set Up the Environment**: 
-    - Create a new project in the Google Cloud Platform (GCP) console.
-    - Enable the necessary APIs: Google Cloud Storage, BigQuery.
-    - Install the Google Cloud SDK on your local machine and authenticate your account.
-    
-2. **Data Storage**:
-    - Create a Google Cloud Storage bucket to store the tweet dataset.
-    - Upload the dataset to the bucket.
+For the challenge:
 
-3. **Data Processing**:
-    - Use Google BigQuery for data processing.
-    - Create a new BigQuery dataset and table.
-    - Load the tweet dataset from Google Cloud Storage into the BigQuery table.
+- google-cloud-bigquery: To interact with BigQuery.
+- google-cloud-storage: To interact with Google Cloud Storage.
+- pandas: To work with dataframes.
+- memory-profiler: To profile memory usage.
+- py-spy: To profile time usage.
 
-4. **Querying Data**:
-    - Write SQL queries in BigQuery to solve the problems mentioned in the challenge.
-    - For each problem, create separate queries to optimize for time and memory.
+For clean the environment:
+- ruff: To sort the imports, format the code and check for errors.
+- isort: To sort the imports.
+- pre-commit: To run the hooks before commit.
 
-5. **Python Scripts**:
-    - Write Python scripts to execute the BigQuery SQL queries using the Google Cloud BigQuery Client Library.
-    - Save the results in the required format.
+For requirements:
+- pip-chill: To create the requirements file.
 
-6. **Jupyter Notebook**:
-    - Create a Jupyter Notebook to document and explain the code.
-    - Include markdown cells to describe each step and provide insights into the solutions.
+## Installation
 
-7. **Deployment**:
-    - Use Google Compute Engine to create a virtual machine for running the Python scripts and Jupyter Notebook if necessary.
-    - Ensure the environment is properly configured with all dependencies.
+To install the dependencies, run the following command:
 
-8. **Testing and Validation**:
-    - Test the scripts to ensure they run correctly and produce the expected results.
-    - Validate the output against sample data to confirm accuracy.
+```bash
+pip install -r requirements.txt
+```
+
+With conda environment:
+
+```bash
+conda env create -f environment.yml
+```
+
+
+
+## Project Structure
+
+The project has the following structure:
+
+1. `q(i)_time.py`: Time-optimized query for problem i. The content file is the best solution for the problem.
+2. `q(i)_memory.py`: Memory-optimized query for problem i. The content file is the best solution for the problem.
+3. `q(i)_memory_large.py`: Memory query used for the original data.
+4. `challenge.py`: Main file with the functions to run the queries.
+
+The data is stored directly in `src/` folder.
