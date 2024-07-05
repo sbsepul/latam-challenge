@@ -54,6 +54,8 @@ With conda environment:
 conda env create -f environment.yml
 ```
 
+Is recommended to use a conda environment but install the dependencies with pip.
+
 ## Project Structure
 
 The project has the following structure:
