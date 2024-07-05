@@ -1,12 +1,6 @@
-import json
-import time
-from datetime import datetime
 from typing import List, Tuple
+from datetime import datetime
 
-import memory_profiler
-
-
-@memory_profiler.profile
 def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
     start_time = time.time()
 
