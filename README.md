@@ -22,6 +22,8 @@ To avoid share the credentials and upload the larges files in the repository, I 
 
 The credentials file is a .env file with the structure of `.env.example` file.
 
+In the `env/` folder is recommended to save the credentials file.
+
 ## Dependencies added
 
 For the challenge:
