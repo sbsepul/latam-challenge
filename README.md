@@ -54,8 +54,6 @@ With conda environment:
 conda env create -f environment.yml
 ```
 
-
-
 ## Project Structure
 
 The project has the following structure:
