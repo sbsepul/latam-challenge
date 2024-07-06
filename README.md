@@ -69,6 +69,10 @@ The project has the following structure:
 1. `q(i)_time.py`: Time-optimized query for problem i. The content file is the best solution for the problem.
 2. `q(i)_memory.py`: Memory-optimized query for problem i. The content file is the best solution for the problem.
 3. `q(i)_memory_large.py`: Memory query used for the original data.
-4. `challenge.py`: Main file with the functions to run the queries.
+4. `challenge.ipynb`: Main file with the functions to run the queries.
 
 The data is stored directly in `src/` folder.
+
+For preprocessing the data, follow the steps in the `challenge.ipynb` file.
+
+The preprocessing folder contains the files to preprocess the data in Cloud Storage using Cloud Functions.
