@@ -75,4 +75,4 @@ The data is stored directly in `src/` folder.
 
 For preprocessing the data, follow the steps in the `challenge.ipynb` file.
 
-The preprocessing folder contains the files to preprocess the data in Cloud Storage using Cloud Functions.
+The preprocessing folder contains the files to preprocess the data in Cloud Storage using Cloud Functions for use in BigQuery.
